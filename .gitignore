@@ -36,3 +36,4 @@ output.json
 obj/
 .externalNativeBuild
 *.gradle
+.idea/gradle.xml
