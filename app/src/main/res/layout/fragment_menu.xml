@@ -6,10 +6,11 @@
     android:id="@+id/menu_Fragment"
     tools:context=".MenuFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvID"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="MENU" />
+        tools:listitem="@layout/recycler_view_item" />
 
 </FrameLayout>
