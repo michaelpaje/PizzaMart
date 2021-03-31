@@ -7,13 +7,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 
-class FoodAdapter(private var title: List<String>, private var price:List<String>, private var image:List<Int>): RecyclerView.Adapter<FoodAdapter.ViewHolder>() {
+class FoodAdapter(private var title: List<String>, private var price:List<String>, private var image:List<String>): RecyclerView.Adapter<FoodAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val itImage: ImageView = itemView.findViewById(R.id.foodImage)
         val itTitle:TextView = itemView.findViewById(R.id.foodName)
         val itPrice:TextView = itemView.findViewById(R.id.foodPrice)
+        val itImage: ImageView = itemView.findViewById(R.id.foodImage)
 
 //        init {
 //            itemView.setOnClickListener {
@@ -31,8 +32,10 @@ class FoodAdapter(private var title: List<String>, private var price:List<String
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.itImage.setImageResource(image[position])
         holder.itTitle.text = title[position]
         holder.itPrice.text = price[position]
+        Picasso.get()
+            .load(image[position])
+            .into(holder.itImage)
     }
 }
