@@ -11,6 +11,7 @@
         android:id="@+id/rvID"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/recycler_view_item" />
+        android:clipToPadding="false"
+        android:paddingBottom="100dp"/>
 
 </FrameLayout>

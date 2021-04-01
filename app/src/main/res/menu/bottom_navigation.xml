@@ -11,10 +11,6 @@
         android:icon="@drawable/ic_baseline_restaurant_menu_24"
         android:title="@string/menu"/>
 
-    <item
-        android:id="@+id/nav_fav"
-        android:icon="@drawable/ic_baseline_favorite_24"
-        android:title="@string/favorites"/>
 
 
 </menu>
