@@ -23,4 +23,6 @@
     <string name="logout">Logout</string>
     <string name="contact">Contact</string>
     <string name="about">About</string>
+    <string name="qty">Qty:</string>
+    <string name="_1">1</string>
 </resources>
