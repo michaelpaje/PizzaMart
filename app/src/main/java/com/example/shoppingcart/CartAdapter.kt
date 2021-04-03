@@ -13,15 +13,17 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-class FoodAdapter(private var title: List<String>, private var price:List<String>, private var image:List<String>): RecyclerView.Adapter<FoodAdapter.ViewHolder>() {
+class CartAdapter(private var title: List<String>, private var price:List<String>, private var image:List<String>, private var fqty:List<String>): RecyclerView.Adapter<CartAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val itTitle:TextView = itemView.findViewById(R.id.foodName)
-        val itPrice:TextView = itemView.findViewById(R.id.foodPrice)
-        val itImage: ImageView = itemView.findViewById(R.id.foodImage)
+        val itTitle: TextView = itemView.findViewById(R.id.cFoodName)
+        val itPrice: TextView = itemView.findViewById(R.id.cFoodPrice)
+        val itImage: ImageView = itemView.findViewById(R.id.cFoodImage)
+        val itQty: TextView = itemView.findViewById(R.id.cFoodQty)
+
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.food, parent,false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.cartfood, parent,false)
         return ViewHolder(v)
     }
 
@@ -32,6 +34,7 @@ class FoodAdapter(private var title: List<String>, private var price:List<String
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itTitle.text = title[position]
         holder.itPrice.text = price[position]
+        holder.itQty.text = fqty[position]
         Picasso.get()
             .load(image[position])
             .into(holder.itImage)
@@ -40,15 +43,14 @@ class FoodAdapter(private var title: List<String>, private var price:List<String
             val inflater: LayoutInflater = LayoutInflater.from(holder.itemView.context)
             val v:View = inflater.inflate(R.layout.dialog_custom,null)
             val etQty: EditText = v.findViewById(R.id.FoodQty)
-            dialog.setTitle("Add to Cart")
-            dialog.setMessage("Do you want to add ${holder.itTitle.text} to cart?")
+            dialog.setTitle("Remove Item")
+            dialog.setMessage("Do you want to remove ${holder.itTitle.text} to cart?")
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 dialog.setView(v)
             }
             dialog.setPositiveButton("Yes", DialogInterface.OnClickListener { _, _ ->
-                Toast.makeText(holder.itemView.context, "${holder.itTitle.text} x${etQty.text} Successfully added to cart!", Toast.LENGTH_SHORT).show()
-                // ADD ITEM TO CART
-
+                Toast.makeText(holder.itemView.context, "${holder.itTitle.text} x${etQty.text} Successfully removed to cart!", Toast.LENGTH_SHORT).show()
+                // REMOVE IN RECYCLERVIEW
             })
             dialog.setNegativeButton("No", DialogInterface.OnClickListener { _, _ ->
             })
