@@ -24,6 +24,7 @@ class CartFragment : Fragment() {
         listItems.clear()
         val sh: SharedPreferences = activity!!.getSharedPreferences("Cart", 0)
         val check:String? = sh.getString("pTitle0", null)
+        var totalPrice = 0
         if (check != null) {
             val gSize: String? = sh.getString("pSize", "")
             for(i in 0 until gSize!!.toInt())
@@ -33,9 +34,10 @@ class CartFragment : Fragment() {
                 val gQty: String? = sh.getString("pQty$i", "")
                 listItems.add(Cart(gTitle.toString(), gPrice.toString(), gQty.toString()))
                 rvCartID.adapter?.notifyDataSetChanged()
+                totalPrice += gPrice!!.toInt() * gQty!!.toInt()
             }
         }
-
+        rvCartID.adapter?.notifyDataSetChanged()
         rvCartID.layoutManager = LinearLayoutManager(activity)
         rvCartID.adapter = CartAdapter(listItems)
     }
