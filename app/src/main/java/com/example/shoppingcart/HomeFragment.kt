@@ -7,6 +7,7 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
+    //lateinit var db:DBHelper
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val item1 = activity?.findViewById<ImageView>(R.id.item1)
@@ -15,6 +16,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val item4 = activity?.findViewById<ImageView>(R.id.item4)
         val item5 = activity?.findViewById<ImageView>(R.id.item5)
         val item6 = activity?.findViewById<ImageView>(R.id.item6)
+        //TODO username
+        //db = DBHelper(this)
         item1?.setOnClickListener{
             setFragment()
             Log.d("message","item 1 clicked!")
