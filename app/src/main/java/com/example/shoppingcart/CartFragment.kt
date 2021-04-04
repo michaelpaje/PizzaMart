@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_cart.*
+import kotlin.math.log
 
 
 class CartFragment : Fragment() {
@@ -34,9 +35,10 @@ class CartFragment : Fragment() {
                 val gQty: String? = sh.getString("pQty$i", "")
                 listItems.add(Cart(gTitle.toString(), gPrice.toString(), gQty.toString()))
                 rvCartID.adapter?.notifyDataSetChanged()
-                totalPrice += gPrice!!.toInt() * gQty!!.toInt()
+                totalPrice += gPrice!!.toInt()
             }
         }
+        listItems.add(Cart("Total Price:", "", totalPrice.toString()))
         rvCartID.adapter?.notifyDataSetChanged()
         rvCartID.layoutManager = LinearLayoutManager(activity)
         rvCartID.adapter = CartAdapter(listItems)

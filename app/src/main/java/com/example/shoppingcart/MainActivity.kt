@@ -38,8 +38,12 @@ class MainActivity : AppCompatActivity() {
         val bottomNav = findViewById<com.google.android.material.bottomnavigation.BottomNavigationView>(R.id.bottom_navigation)
         bottomNav.setOnNavigationItemSelectedListener {
             when(it.itemId) {
-                R.id.nav_home -> setFragment(homeFragment)
-                R.id.nav_menu -> setFragment(menuFragment)
+                R.id.nav_home -> {
+                    setFragment(homeFragment)
+                }
+                R.id.nav_menu -> {
+                    setFragment(menuFragment)
+                }
             }
             true
         }
