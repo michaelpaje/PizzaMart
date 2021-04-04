@@ -54,7 +54,7 @@
                     android:padding="5dp">
 
                     <ImageView
-                        android:id="@+id/menuitem1"
+                        android:id="@+id/item1"
                         android:layout_width="wrap_content"
                         android:layout_height="200dp"
                         android:layout_weight="1"
@@ -63,7 +63,7 @@
                         android:src="@android:drawable/editbox_dropdown_light_frame" />
 
                     <ImageView
-                        android:id="@+id/menuitem2"
+                        android:id="@+id/item2"
                         android:layout_width="wrap_content"
                         android:layout_height="200dp"
                         android:layout_weight="1"
@@ -79,7 +79,7 @@
                     android:padding="5dp">
 
                     <ImageView
-                        android:id="@+id/menuitem3"
+                        android:id="@+id/item3"
                         android:layout_width="wrap_content"
                         android:layout_height="200dp"
                         android:layout_weight="1"
@@ -87,7 +87,7 @@
                         android:src="@android:drawable/editbox_dropdown_light_frame" />
 
                     <ImageView
-                        android:id="@+id/menuitem4"
+                        android:id="@+id/item4"
                         android:layout_width="wrap_content"
                         android:layout_height="200dp"
                         android:layout_weight="1"
@@ -101,7 +101,7 @@
                     android:padding="5dp">
 
                     <ImageView
-                        android:id="@+id/menuitem5"
+                        android:id="@+id/item5"
                         android:layout_width="wrap_content"
                         android:layout_height="200dp"
                         android:layout_weight="1"
@@ -109,7 +109,7 @@
                         android:src="@android:drawable/editbox_dropdown_light_frame" />
 
                     <ImageView
-                        android:id="@+id/menuitem6"
+                        android:id="@+id/item6"
                         android:layout_width="wrap_content"
                         android:layout_height="200dp"
                         android:layout_weight="1"
