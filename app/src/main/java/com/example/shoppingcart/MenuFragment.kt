@@ -1,10 +1,15 @@
 package com.example.shoppingcart
 
+import android.app.AlertDialog
+import android.content.DialogInterface
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
@@ -19,9 +24,7 @@ import org.json.JSONObject
 
 
 class MenuFragment : Fragment() {
-    private var titleList = mutableListOf<String>()
-    private var priceList = mutableListOf<String>()
-    private var imageList = mutableListOf<String>()
+    private var listItems = mutableListOf<Food>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -30,9 +33,8 @@ class MenuFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        titleList.clear()
-        priceList.clear()
-        imageList.clear()
+        // Clear data
+        listItems.clear()
         // Instantiate the RequestQueue.
         val queue = Volley.newRequestQueue(activity)
         val url = "https://androidappsforyoutube.s3.ap-south-1.amazonaws.com/foodapp/fooddata.json"
@@ -42,14 +44,14 @@ class MenuFragment : Fragment() {
                     try {
                         val json_obj = JSONArray(response.toString())
                         val arr_items: JSONObject = json_obj.getJSONObject(0)
-                        var item=  arr_items.getJSONArray("allmenu")
+                        val item=  arr_items.getJSONArray("allmenu")
                         for(i in 0 until json_obj.length()) {
                             for(j in 0 until item.length()) {
                                 var item1 = item.getJSONObject(j)
                                 val item_name =  item1.getString("name")
                                 val item_price = item1.getString("price")
                                 val item_image = item1.getString("imageUrl")
-                                addToList(item_name,item_price,item_image)
+                                listItems.add(Food(item_name,item_price,item_image))
                                 rvID.adapter?.notifyDataSetChanged()
                             }
                         }
@@ -65,13 +67,6 @@ class MenuFragment : Fragment() {
         // Add the request to the RequestQueue.
         queue.add(stringRequest)
         rvID.layoutManager = LinearLayoutManager(activity)
-        rvID.adapter = FoodAdapter(titleList, priceList, imageList)
+        rvID.adapter = FoodAdapter(listItems)
     }
-
-    private fun addToList(title: String, price: String, image: String) {
-        titleList.add(title)
-        priceList.add(price)
-        imageList.add(image)
-    }
-
 }
