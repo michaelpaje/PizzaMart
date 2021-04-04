@@ -3,6 +3,7 @@ package com.example.shoppingcart
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,9 +16,9 @@ import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_cart.*
 
 class FoodAdapter(private var FoodItem: MutableList<Food>): RecyclerView.Adapter<FoodAdapter.ViewHolder>() {
-
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val itTitle:TextView = itemView.findViewById(R.id.foodName)
         val itPrice:TextView = itemView.findViewById(R.id.foodPrice)
@@ -33,6 +34,7 @@ class FoodAdapter(private var FoodItem: MutableList<Food>): RecyclerView.Adapter
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        var check = false
         val fItems: Food = FoodItem[position]
         holder.itTitle.text = fItems.fTitle
         holder.itPrice.text = fItems.fPrice
@@ -51,11 +53,43 @@ class FoodAdapter(private var FoodItem: MutableList<Food>): RecyclerView.Adapter
             }
             dialog.setPositiveButton("Yes", DialogInterface.OnClickListener { _, _ ->
                 Toast.makeText(holder.itemView.context, "${holder.itTitle.text} x${etQty.text} Successfully added to cart!", Toast.LENGTH_SHORT).show()
+                val sh: SharedPreferences = holder.itemView.context.getSharedPreferences("Cart", 0)
+                // GET SIZE
+                val gSize: String? = sh.getString("pSize", "0")
+                // CHECK IF THE ITEM ALREADY EXIST
+                var getPos = 0
+                for(i in 0 until gSize!!.toInt())
+                {
+                    val gTitle: String? = sh.getString("pTitle$i", "")
+                    // CHECK IF TITLE ALREADY EXIST
+                    if(gTitle == holder.itTitle.text.toString())
+                    {
+                        check=true
+                        getPos = i
+                        break
+                    }
+                }
                 // ADD ITEM TO CART
                 holder.itemView.context.getSharedPreferences("Cart", Context.MODE_PRIVATE).edit().apply(){
-                    putString("pTitle", holder.itTitle.text.toString())
-                    putString("pPrice", holder.itPrice.text.toString())
-                    putString("pQty", etQty.text.toString())
+                    if(check) {
+                        putString("pTitle$getPos", holder.itTitle.text.toString())
+                        // price * quantity
+                        val gQty: String? = sh.getString("pQty", "1")
+                        val totalQty = gQty?.toInt()?.plus(etQty.text.toString().toInt())
+                        val totalPrice = (holder.itPrice.text as String).toInt().times(totalQty!!)
+                        putString("pPrice$getPos", totalPrice.toString())
+                        putString("pQty$getPos", totalQty.toString())
+                        putString("pSize", gSize.toString())
+                        check=false
+                    }
+                    else {
+                        putString("pTitle$gSize", holder.itTitle.text.toString())
+                        putString("pPrice$gSize", holder.itPrice.text.toString())
+                        putString("pQty$gSize", etQty.text.toString())
+                        var temp = gSize.toInt()
+                        temp++
+                        putString("pSize", temp.toString())
+                    }
                 }.apply()
             })
             dialog.setNegativeButton("No", DialogInterface.OnClickListener { _, _ ->

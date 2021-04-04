@@ -20,15 +20,20 @@ class CartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // delete list
+        listItems.clear()
         val sh: SharedPreferences = activity!!.getSharedPreferences("Cart", 0)
-        val check:String? = sh.getString("pTitle", null)
+        val check:String? = sh.getString("pTitle0", null)
         if (check != null) {
-            val gTitle: String? = sh.getString("pTitle", "")
-            val gPrice: String? = sh.getString("pPrice", "")
-            val gQty: String? = sh.getString("pQty", "")
-            listItems.add(Cart(gTitle.toString(), gPrice.toString(), gQty.toString()))
-            activity!!.getSharedPreferences("Cart", 0).edit().clear().apply()
-            rvCartID.adapter?.notifyDataSetChanged()
+            val gSize: String? = sh.getString("pSize", "")
+            for(i in 0 until gSize!!.toInt())
+            {
+                val gTitle: String? = sh.getString("pTitle$i", "")
+                val gPrice: String? = sh.getString("pPrice$i", "")
+                val gQty: String? = sh.getString("pQty$i", "")
+                listItems.add(Cart(gTitle.toString(), gPrice.toString(), gQty.toString()))
+                rvCartID.adapter?.notifyDataSetChanged()
+            }
         }
 
         rvCartID.layoutManager = LinearLayoutManager(activity)
