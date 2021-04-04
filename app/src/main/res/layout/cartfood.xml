@@ -1,18 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="100dp"
+    android:id="@+id/cartFoodID"
     android:padding="15dp" >
 
-    <ImageView
-        android:id="@+id/cFoodImage"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="15dp"
-        android:src="@drawable/ic_launcher_foreground"
-        android:layout_marginEnd="15dp"
-        android:contentDescription="@string/food_image" />
 
     <TextView
         android:id="@+id/cFoodName"
@@ -21,38 +12,33 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_alignWithParentIfMissing="true"
-        android:layout_toRightOf="@id/cFoodImage"
         android:gravity="center_vertical"
         android:text="@string/name_of_food"
         android:textColor="#303030"
         android:textSize="32sp"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@id/cFoodImage" />
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:id="@+id/cFoodPrice"
         android:layout_width="wrap_content"
         android:layout_height="26dip"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@id/cFoodImage"
         android:ellipsize="marquee"
         android:singleLine="true"
         android:text="@string/food_price"
         android:textColor="#303030"
-        android:textSize="24sp"
-        android:layout_toEndOf="@id/cFoodImage" />
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/cFoodQty"
         android:layout_width="wrap_content"
-        android:layout_height="26dip"
-        android:layout_alignParentBottom="true"
+        android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:ellipsize="marquee"
-        android:singleLine="true"
         android:text="@string/_0"
         android:textColor="#303030"
-        android:textSize="24sp"
+        android:layout_centerVertical="true"
+        android:textSize="45sp"
         android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

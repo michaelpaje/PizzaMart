@@ -1,6 +1,8 @@
 package com.example.shoppingcart
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -18,6 +20,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        applicationContext.getSharedPreferences("Cart", 0).edit().clear().apply()
+
         // DEFAULT FRAGMENT
         setFragment(homeFragment)
         // BURGER MENU
