@@ -72,19 +72,20 @@ class FoodAdapter(private var FoodItem: MutableList<Food>): RecyclerView.Adapter
                 // ADD ITEM TO CART
                 holder.itemView.context.getSharedPreferences("Cart", Context.MODE_PRIVATE).edit().apply(){
                     if(check) {
-                        putString("pTitle$getPos", holder.itTitle.text.toString())
-                        // price * quantity
-                        val gQty: String? = sh.getString("pQty", "1")
+                        val gQty: String? = sh.getString("pQty$getPos", "1")
                         val totalQty = gQty?.toInt()?.plus(etQty.text.toString().toInt())
                         val totalPrice = (holder.itPrice.text as String).toInt().times(totalQty!!)
+                        putString("pTitle$getPos", holder.itTitle.text.toString())
+                        // price * quantity
                         putString("pPrice$getPos", totalPrice.toString())
                         putString("pQty$getPos", totalQty.toString())
                         putString("pSize", gSize.toString())
                         check=false
                     }
                     else {
+                        val totalPrice = (holder.itPrice.text as String).toInt().times(etQty.text.toString().toInt())
                         putString("pTitle$gSize", holder.itTitle.text.toString())
-                        putString("pPrice$gSize", holder.itPrice.text.toString())
+                        putString("pPrice$gSize", totalPrice.toString())
                         putString("pQty$gSize", etQty.text.toString())
                         var temp = gSize.toInt()
                         temp++
