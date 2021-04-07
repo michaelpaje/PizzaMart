@@ -27,6 +27,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btnSignUp"
+        android:backgroundTint="#FEFEFE"
+        android:textColor="#29AE61"
         android:layout_marginTop="50dp"
         android:layout_below="@+id/password"/>
 
@@ -35,6 +37,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btnSignIn"
+        android:backgroundTint="#FEFEFE"
+        android:textColor="#29AE61"
         android:layout_marginTop="50dp"
         android:layout_below="@+id/btnSignUp"/>
 

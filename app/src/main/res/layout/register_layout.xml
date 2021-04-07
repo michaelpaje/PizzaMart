@@ -35,6 +35,8 @@
         android:id="@+id/btnSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#FEFEFE"
+        android:textColor="#29AE61"
         android:text="@string/btnSignUp"
         android:layout_marginTop="50dp"
         android:layout_below="@+id/rePassword"/>
