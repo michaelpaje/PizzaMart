@@ -1,5 +1,6 @@
 package com.example.shoppingcart
 
+import android.app.AlertDialog
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_cart.*
+import kotlin.math.log
 
 
 class CartFragment : Fragment() {
@@ -22,7 +24,7 @@ class CartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         // delete list
         listItems.clear()
-        val sh: SharedPreferences = activity!!.getSharedPreferences("Cart", 0)
+        val sh: SharedPreferences = requireActivity().getSharedPreferences("Cart", 0)
         val check:String? = sh.getString("pTitle0", null)
         var totalPrice = 0
         if (check != null) {
@@ -34,12 +36,20 @@ class CartFragment : Fragment() {
                 val gQty: String? = sh.getString("pQty$i", "")
                 listItems.add(Cart(gTitle.toString(), gPrice.toString(), gQty.toString()))
                 rvCartID.adapter?.notifyDataSetChanged()
-                totalPrice += gPrice!!.toInt() * gQty!!.toInt()
+                totalPrice += gPrice!!.toInt()
             }
         }
-        rvCartID.adapter?.notifyDataSetChanged()
         rvCartID.layoutManager = LinearLayoutManager(activity)
         rvCartID.adapter = CartAdapter(listItems)
+        // checkout button
+        checkoutBtn.setOnClickListener{
+            // DITO MAGEENTER NG MGA ADDRESS CHUCHU
+            val inflater: LayoutInflater = LayoutInflater.from(activity)
+            val v:View = inflater.inflate(R.layout.checkout_dialog,null)
+            val dialog = AlertDialog.Builder(activity)
+            dialog.setView(v)
+            dialog.show()
+        }
     }
 }
 
