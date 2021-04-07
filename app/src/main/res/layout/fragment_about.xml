@@ -2,11 +2,12 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/about_Fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/about_Fragment"
-    tools:context=".AboutFragment"
-    android:padding="10dp">
+    android:background="#EBEBED"
+    android:padding="10dp"
+    tools:context=".AboutFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,14 +17,108 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="100dp">
+            android:layout_marginBottom="100dp"
+            android:background="#EBEBED">
+
+            <TextView
+                android:id="@+id/RyzenInfo"
+                android:layout_width="365dp"
+                android:layout_height="98dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center_horizontal"
+                android:text="@string/abouttext"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.516"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/RyzenLogo" />
+
+            <ImageView
+                android:id="@+id/RyzenLogo"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="24dp"
+                android:src="@drawable/rz"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/About_Ryzen4" />
+
+            <TextView
+                android:id="@+id/txtvision"
+                android:layout_width="285dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/txt_vision"
+                android:textColor="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.504"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vision" />
+
+            <TextView
+                android:id="@+id/mission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="@string/mission"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/RyzenInfo" />
+
+            <TextView
+                android:id="@+id/txtmission"
+                android:layout_width="285dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/txt_mission"
+                android:textColor="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.504"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mission" />
+
+            <TextView
+                android:id="@+id/OurTeam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Our Team"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.053"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtvision" />
+
+            <TextView
+                android:id="@+id/vision"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="@string/vision"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtmission" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/img_leader"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginTop="12dp"
-                android:src="@drawable/dom"
+                android:src="@drawable/mj"
                 app:civ_border_color="#FF000000"
                 app:civ_border_width="2dp"
                 app:layout_constraintEnd_toStartOf="@+id/img_member1"
@@ -143,99 +238,6 @@
                 app:layout_constraintHorizontal_bias="0.078"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/RyzenLogo"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="24dp"
-                android:src="@android:drawable/editbox_dropdown_light_frame"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/About_Ryzen4" />
-
-            <TextView
-                android:id="@+id/RyzenInfo"
-                android:layout_width="365dp"
-                android:layout_height="98dp"
-                android:layout_marginTop="16dp"
-                android:gravity="center_horizontal"
-                android:text="@string/abouttext"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.516"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/RyzenLogo" />
-
-            <TextView
-                android:id="@+id/mission"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:gravity="center"
-                android:text="@string/mission"
-                android:textColor="#000000"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/RyzenInfo" />
-
-            <TextView
-                android:id="@+id/vision"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:gravity="center"
-                android:text="@string/vision"
-                android:textColor="#000000"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.501"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtmission" />
-
-            <TextView
-                android:id="@+id/txtmission"
-                android:layout_width="285dp"
-                android:layout_height="37dp"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:text="@string/txt_mission"
-                android:textColor="#000000"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.504"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/mission" />
-
-            <TextView
-                android:id="@+id/txtvision"
-                android:layout_width="285dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:text="@string/txt_vision"
-                android:textColor="#000000"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.504"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/vision" />
-
-            <TextView
-                android:id="@+id/OurTeam"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="Our Team"
-                android:textColor="#000000"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.053"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtvision" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

@@ -5,7 +5,7 @@
     android:id="@+id/contact_Fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="#EBEBED"
     android:padding="30px"
     app:barrierMargin="1dp"
     tools:context=".ContactFragment">
@@ -15,26 +15,26 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/contact"
             android:layout_width="244dp"
             android:layout_height="wrap_content"
             android:text="Contact Us"
             android:textColor="#000000"
             android:textSize="30dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintEnd_toStartOf="@+id/contact_icon"
             app:layout_constraintHorizontal_bias="0.25"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imageView"
+            android:id="@+id/contact_icon"
             android:layout_width="81dp"
             android:layout_height="65dp"
             android:src="@android:drawable/stat_sys_phone_call"
             app:civ_border_color="#FF000000"
             app:civ_border_overlay="false"
             app:civ_border_width="1dp"
-            app:civ_circle_background_color="#3F51B5"
+            app:civ_circle_background_color="#50C594"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -42,15 +42,15 @@
 
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/txt_contact"
             android:layout_width="254dp"
             android:layout_height="34dp"
             android:text="Call us or send a message and we'll respond as soon as possible"
             android:textColor="#2E2B2B"
-            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintEnd_toStartOf="@+id/contact_icon"
             app:layout_constraintHorizontal_bias="0.296"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/contact" />
 
         <LinearLayout
             android:layout_width="362dp"
@@ -59,17 +59,17 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2">
+            app:layout_constraintTop_toBottomOf="@+id/txt_contact">
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/contact_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Name"
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/input_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -77,14 +77,14 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/contact_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Email"
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/editTextTextEmailAddress"
+                android:id="@+id/input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -92,14 +92,14 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/contact_message"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Message"
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/editTextTextMultiLine"
+                android:id="@+id/input_message"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -108,10 +108,14 @@
                 android:textSize="20sp" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/contact_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Send" />
+                android:text="Send"
+                android:textColor="#50C594"
+                app:backgroundTint="#E1EEE6"
+                app:cornerRadius="10dp"
+                app:strokeColor="#50C594"/>
 
         </LinearLayout>
 
