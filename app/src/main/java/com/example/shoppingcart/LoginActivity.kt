@@ -1,5 +1,6 @@
 package com.example.shoppingcart
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -18,7 +19,6 @@ class LoginActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_layout)
         this.supportActionBar?.hide()
-
         username = findViewById(R.id.username)
         password = findViewById(R.id.password)
         signIn = findViewById(R.id.btnSignIn)
@@ -34,6 +34,9 @@ class LoginActivity: AppCompatActivity() {
             else {
                 val checkUserPass = this.db.checkUserPass(user,pass)
                 if(checkUserPass) {
+                    this.getSharedPreferences("User", Context.MODE_PRIVATE).edit().apply(){
+                        putString("username",user)
+                    }.apply()
                     Toast.makeText(this, "Login successfully!", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this, MainActivity::class.java))
                 }
