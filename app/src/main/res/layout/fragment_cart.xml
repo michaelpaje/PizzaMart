@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:textSize="35sp"
-        android:textColor="@color/black"
+        android:textColor="#29AE61"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:text="@string/my_cart"/>
@@ -30,6 +30,7 @@
         android:id="@+id/checkoutBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#29AE61"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_gravity="center_horizontal|bottom"
