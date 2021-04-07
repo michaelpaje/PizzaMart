@@ -6,43 +6,33 @@
     android:id="@+id/cart_Fragment"
     tools:context=".CartFragment">
 
+    <TextView
+        android:id="@+id/rvTitleMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="35sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/my_cart"/>
+
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="70dp"
         android:id="@+id/rvCartID"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:paddingBottom="100dp"/>
+        android:paddingBottom="100dp" />
 
-    <RelativeLayout
-        android:id="@+id/footer"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/checkoutBtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/black"
-        android:layout_gravity="bottom"
-        android:gravity="center">
-        <TextView
-            android:id="@+id/TotalPtxt"
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:gravity="center_vertical|left"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            android:layout_marginLeft="30dp"
-            android:text="@string/total_price"
-            android:layout_marginStart="30dp"
-            tools:ignore="RtlHardcoded" />
-
-        <TextView
-            android:id="@+id/TotalPrice"
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:gravity="center_vertical|right"
-            android:layout_marginRight="30dp"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            android:text="@string/_0"
-            android:layout_marginEnd="30dp"
-            tools:ignore="RtlHardcoded" />
-    </RelativeLayout>
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:text="@string/checkoutBtn" />
 
 </FrameLayout>

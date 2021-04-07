@@ -1,5 +1,6 @@
 package com.example.shoppingcart
 
+import android.app.AlertDialog
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -23,7 +24,7 @@ class CartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         // delete list
         listItems.clear()
-        val sh: SharedPreferences = activity!!.getSharedPreferences("Cart", 0)
+        val sh: SharedPreferences = requireActivity().getSharedPreferences("Cart", 0)
         val check:String? = sh.getString("pTitle0", null)
         var totalPrice = 0
         if (check != null) {
@@ -38,10 +39,17 @@ class CartFragment : Fragment() {
                 totalPrice += gPrice!!.toInt()
             }
         }
-        listItems.add(Cart("Total Price:", "", totalPrice.toString()))
-        rvCartID.adapter?.notifyDataSetChanged()
         rvCartID.layoutManager = LinearLayoutManager(activity)
         rvCartID.adapter = CartAdapter(listItems)
+        // checkout button
+        checkoutBtn.setOnClickListener{
+            // DITO MAGEENTER NG MGA ADDRESS CHUCHU
+            val inflater: LayoutInflater = LayoutInflater.from(activity)
+            val v:View = inflater.inflate(R.layout.checkout_dialog,null)
+            val dialog = AlertDialog.Builder(activity)
+            dialog.setView(v)
+            dialog.show()
+        }
     }
 }
 
