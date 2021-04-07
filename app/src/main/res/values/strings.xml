@@ -37,4 +37,8 @@
     <string name="city" />
     <string name="zipcode" />
     <string name="_500">500</string>
+    <string name="placeholder">Placeholder</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="image">image</string>
 </resources>

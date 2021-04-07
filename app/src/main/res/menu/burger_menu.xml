@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/home_item"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/home_item"
         android:icon="@drawable/ic_baseline_home_24"
-        app:showAsAction="ifRoom"
         android:title="@string/home" />
-    <item android:id="@+id/contact_item"
-        android:icon="@drawable/ic_baseline_home_24"
-        app:showAsAction="ifRoom"
+    <item
+        android:id="@+id/contact_item"
+        android:icon="@drawable/ic_baseline_phone_24"
         android:title="@string/contact" />
-    <item android:id="@+id/about_item"
-        android:icon="@drawable/ic_baseline_home_24"
-        app:showAsAction="ifRoom"
+    <item
+        android:id="@+id/about_item"
+        android:icon="@drawable/ic_baseline_announcement_24"
         android:title="@string/about" />
-    <item android:id="@+id/menu_item"
+    <item
+        android:id="@+id/menu_item"
         android:icon="@drawable/ic_baseline_restaurant_menu_24"
-        app:showAsAction="ifRoom"
         android:title="@string/menu" />
-    <item android:id="@+id/cart_item"
+    <item
+        android:id="@+id/cart_item"
         android:icon="@drawable/ic_baseline_shopping_cart_24"
-        app:showAsAction="ifRoom"
         android:title="@string/cart" />
-    <item android:id="@+id/logout_item"
+    <item
+        android:id="@+id/logout_item"
         android:icon="@drawable/ic_baseline_power_settings_new_24"
-        app:showAsAction="ifRoom"
         android:title="@string/logout" />
 </menu>
