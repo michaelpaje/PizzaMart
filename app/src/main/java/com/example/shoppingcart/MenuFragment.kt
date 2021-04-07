@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.Response
@@ -66,7 +67,7 @@ class MenuFragment : Fragment() {
                 })
         // Add the request to the RequestQueue.
         queue.add(stringRequest)
-        rvID.layoutManager = LinearLayoutManager(activity)
+        rvID.layoutManager = GridLayoutManager(activity, 2)
         rvID.adapter = FoodAdapter(listItems)
     }
 }
