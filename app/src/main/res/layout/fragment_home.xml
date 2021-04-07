@@ -23,11 +23,10 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/home_news"
+                    android:id="@+id/welcome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
-                    android:text="@string/welcome"
                     android:textColor="#000000"
                     android:textSize="30dp" />
 
