@@ -31,9 +31,10 @@
 
     <Button
         android:id="@+id/btnProceed"
+        android:background="@drawable/rounded_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btnSignUp"
+        android:text="@string/checkoutBtn"
         android:layout_marginTop="50dp"
         android:layout_below="@+id/zipcode"/>
 
