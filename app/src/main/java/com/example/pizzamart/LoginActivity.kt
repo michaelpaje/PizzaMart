@@ -1,4 +1,4 @@
-package com.example.shoppingcart
+package com.example.pizzamart
 
 import android.content.Context
 import android.content.Intent
