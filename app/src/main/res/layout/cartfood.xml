@@ -1,8 +1,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="100dp"
+    android:layout_height="wrap_content"
     android:id="@+id/cartFoodID"
-    android:padding="15dp" >
+    android:layout_margin="10dp"
+    android:background="@drawable/curve"
+    android:elevation="4dp"
+    android:padding="20dp"
+    tools:targetApi="lollipop">
 
 
     <TextView
@@ -15,8 +20,19 @@
         android:gravity="center_vertical"
         android:text="@string/name_of_food"
         android:textColor="#303030"
-        android:textSize="32sp"
+        android:textSize="24sp"
         android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/cFoodPcs"
+        android:layout_width="wrap_content"
+        android:layout_height="26dip"
+        android:layout_alignParentBottom="true"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="@string/u20b1"
+        android:textColor="#303030"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/cFoodPrice"
@@ -24,10 +40,14 @@
         android:layout_height="26dip"
         android:layout_alignParentBottom="true"
         android:ellipsize="marquee"
+        android:layout_toRightOf="@id/cFoodPcs"
         android:singleLine="true"
+        android:layout_marginLeft="5dp"
         android:text="@string/food_price"
         android:textColor="#303030"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@id/cFoodPcs" />
 
     <TextView
         android:id="@+id/cFoodQty"
@@ -40,5 +60,7 @@
         android:layout_centerVertical="true"
         android:textSize="45sp"
         android:layout_alignParentEnd="true" />
+
+
 
 </RelativeLayout>

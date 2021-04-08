@@ -74,7 +74,7 @@ class FoodAdapter(private var FoodItem: MutableList<Food>): RecyclerView.Adapter
                         val totalPrice = (holder.itPrice.text as String).toDouble().times(totalQty!!)
                         putString("pTitle$getPos", holder.itTitle.text.toString())
                         // price * quantity
-                        putString("pPrice$getPos", totalPrice.toString())
+                        putString("pPrice$getPos", String.format("%.2f", totalPrice))
                         putString("pQty$getPos", totalQty.toString())
                         putString("pSize", gSize.toString())
                         check=false
@@ -82,7 +82,7 @@ class FoodAdapter(private var FoodItem: MutableList<Food>): RecyclerView.Adapter
                     else {
                         val totalPrice = (holder.itPrice.text as String).toDouble().times(etQty.text.toString().toInt())
                         putString("pTitle$gSize", holder.itTitle.text.toString())
-                        putString("pPrice$gSize", totalPrice.toString())
+                        putString("pPrice$gSize", String.format("%.2f", totalPrice))
                         putString("pQty$gSize", etQty.text.toString())
                         var temp = gSize.toInt()
                         temp++
