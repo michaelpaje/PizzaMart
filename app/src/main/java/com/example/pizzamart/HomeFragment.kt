@@ -7,6 +7,15 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.VolleyError
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import com.squareup.picasso.Picasso
+import org.json.JSONArray
+import org.json.JSONException
+import org.json.JSONObject
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
     //lateinit var db:DBHelper
@@ -21,11 +30,39 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val item5 = activity?.findViewById<ImageView>(R.id.item5)
         val item6 = activity?.findViewById<ImageView>(R.id.item6)
         val welcome = activity?.findViewById<TextView>(R.id.welcome)
-        //TODO username
-        //db = DBHelper(this)
+        val popular =activity?.findViewById<ImageView>(R.id.Popular_img)
         val sh: SharedPreferences = requireActivity().getSharedPreferences("User", 0)
         val username = sh.getString("username","0")
         welcome?.text = "Welcome $username!"
+
+        val itemarr = arrayOf(item1,item2,item3,item4,item5,item6)
+        // Instantiate the RequestQueue.
+        val queue = Volley.newRequestQueue(activity)
+        val url = "https://guarded-citadel-93720.herokuapp.com/pizza"
+        // Request a string response from the provided URL.
+        val stringRequest = StringRequest(
+            Request.Method.GET, url,
+            Response.Listener<String> { response ->
+                try {
+                    val json_obj = JSONArray(response.toString())
+                    for(i in 0 until json_obj.length()) {
+                        val items: JSONObject = json_obj.getJSONObject(i)
+                        val item_image = items.getString("image")
+                        //listItems.add(Food(item_image))
+                        Picasso.get().load(item_image).into(popular)
+                        Picasso.get().load(item_image).into(itemarr[i])
+                    }
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                }
+            },
+            Response.ErrorListener {
+                fun onErrorResponse(error: VolleyError) {
+                    Log.e("Volley", error.toString());
+                }
+            })
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest)
 
         item1?.setOnClickListener{
             setFragment()
