@@ -38,23 +38,19 @@ class MenuFragment : Fragment() {
         listItems.clear()
         // Instantiate the RequestQueue.
         val queue = Volley.newRequestQueue(activity)
-        val url = "https://androidappsforyoutube.s3.ap-south-1.amazonaws.com/foodapp/fooddata.json"
+        val url = "https://guarded-citadel-93720.herokuapp.com/pizza"
         // Request a string response from the provided URL.
         val stringRequest = StringRequest(Request.Method.GET, url,
                 Response.Listener<String> { response ->
                     try {
                         val json_obj = JSONArray(response.toString())
-                        val arr_items: JSONObject = json_obj.getJSONObject(0)
-                        val item=  arr_items.getJSONArray("allmenu")
                         for(i in 0 until json_obj.length()) {
-                            for(j in 0 until item.length()) {
-                                var item1 = item.getJSONObject(j)
-                                val item_name =  item1.getString("name")
-                                val item_price = item1.getString("price")
-                                val item_image = item1.getString("imageUrl")
+                                val items: JSONObject = json_obj.getJSONObject(i)
+                                val item_name =  items.getString("name")
+                                val item_price = items.getString("price")
+                                val item_image = items.getString("image")
                                 listItems.add(Food(item_name,item_price,item_image))
                                 rvID.adapter?.notifyDataSetChanged()
-                            }
                         }
                     } catch (e: JSONException) {
                         e.printStackTrace()
