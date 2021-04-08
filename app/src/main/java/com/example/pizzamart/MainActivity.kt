@@ -1,4 +1,4 @@
-package com.example.shoppingcart
+package com.example.pizzamart
 
 import android.os.Bundle
 import android.view.Menu
@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
              R.id.about_item -> setFragment(aboutFragment)
              R.id.menu_item -> setFragment(menuFragment)
              R.id.cart_item -> setFragment(cartFragment)
+             R.id.logout_item -> finish()
          }
         drawer.closeDrawer(GravityCompat.START)
         return true

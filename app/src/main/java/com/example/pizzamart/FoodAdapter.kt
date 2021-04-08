@@ -1,11 +1,10 @@
-package com.example.shoppingcart
+package com.example.pizzamart
 
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
 import android.content.SharedPreferences
 import android.os.Build
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,10 +12,8 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_cart.*
 
 class FoodAdapter(private var FoodItem: MutableList<Food>): RecyclerView.Adapter<FoodAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -74,7 +71,7 @@ class FoodAdapter(private var FoodItem: MutableList<Food>): RecyclerView.Adapter
                     if(check) {
                         val gQty: String? = sh.getString("pQty$getPos", "1")
                         val totalQty = gQty?.toInt()?.plus(etQty.text.toString().toInt())
-                        val totalPrice = (holder.itPrice.text as String).toInt().times(totalQty!!)
+                        val totalPrice = (holder.itPrice.text as String).toDouble().times(totalQty!!)
                         putString("pTitle$getPos", holder.itTitle.text.toString())
                         // price * quantity
                         putString("pPrice$getPos", totalPrice.toString())
@@ -83,7 +80,7 @@ class FoodAdapter(private var FoodItem: MutableList<Food>): RecyclerView.Adapter
                         check=false
                     }
                     else {
-                        val totalPrice = (holder.itPrice.text as String).toInt().times(etQty.text.toString().toInt())
+                        val totalPrice = (holder.itPrice.text as String).toDouble().times(etQty.text.toString().toInt())
                         putString("pTitle$gSize", holder.itTitle.text.toString())
                         putString("pPrice$gSize", totalPrice.toString())
                         putString("pQty$gSize", etQty.text.toString())
