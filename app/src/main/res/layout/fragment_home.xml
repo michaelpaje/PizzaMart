@@ -19,7 +19,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="222dp"
+                android:layout_height="296dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -27,8 +27,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
+                    android:text="Welcome text"
+                    android:textColor="#000000"
+                    android:textSize="32dp" />
+
+                <TextView
+                    android:id="@+id/Popular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Popular Now"
                     android:textColor="#000000"
                     android:textSize="30dp" />
+
+                <ImageView
+                    android:id="@+id/item11"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    android:contentDescription="First Item"
+                    android:padding="5dp"
+                    android:src="@android:drawable/editbox_dropdown_light_frame" />
 
             </LinearLayout>
 
@@ -41,7 +60,7 @@
                     android:id="@+id/tvmenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-medium"
+                    android:fontFamily="sans-serif-light"
                     android:text="Menu"
                     android:textColor="#000000"
                     android:textSize="30dp" />
