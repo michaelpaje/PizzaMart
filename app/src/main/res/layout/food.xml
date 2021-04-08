@@ -5,13 +5,13 @@
     android:layout_margin="10dp"
     android:background="@drawable/curve"
     android:elevation="4dp"
-    android:padding="5dp"
+    android:padding="10dp"
     tools:targetApi="lollipop">
 
     <ImageView
         android:id="@+id/foodImage"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/ic_launcher_foreground"
         android:contentDescription="@string/food_image" />

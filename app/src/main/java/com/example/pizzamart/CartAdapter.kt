@@ -1,8 +1,7 @@
-package com.example.shoppingcart
+package com.example.pizzamart
 
 import android.app.AlertDialog
 import android.content.DialogInterface
-import android.system.Os.remove
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
