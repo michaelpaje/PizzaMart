@@ -17,7 +17,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_alignWithParentIfMissing="true"
-        android:gravity="center_vertical"
         android:text="@string/name_of_food"
         android:textColor="#303030"
         android:textSize="24sp"
@@ -58,7 +57,7 @@
         android:text="@string/_0"
         android:textColor="#303030"
         android:layout_centerVertical="true"
-        android:textSize="45sp"
+        android:textSize="35sp"
         android:layout_alignParentEnd="true" />
 
 
