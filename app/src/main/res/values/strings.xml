@@ -53,4 +53,5 @@
     <string name="the_restaurant_is_preparing_your_order">The Restaurant is preparing your order!</string>
     <string name="the_rider_has_picked_up_your_order">The rider has picked up your order!</string>
     <string name="the_rider_is_on_the_way_please_sit_back_and_relax">The rider is on the way, please sit back and relax!</string>
+    <string name="name">Name</string>
 </resources>

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -57,23 +58,32 @@ class CartFragment : Fragment() {
                 val inflater: LayoutInflater = LayoutInflater.from(activity)
                 val v:View = inflater.inflate(R.layout.checkout_dialog,null)
                 val totalP:TextView = v.findViewById(R.id.price)
+                val nameET:EditText = v.findViewById(R.id.etName)
+                val addressET:EditText = v.findViewById(R.id.etAddress)
+                val noteET:EditText = v.findViewById(R.id.etNote)
                 val dialog = AlertDialog.Builder(activity)
                 val alert = dialog.create()
                 totalP.text = totalPrice.toString()
                 alert.setView(v)
                 alert.setTitle("Checkout")
                 alert.show()
-
                 val fm = fragmentManager
                 val f: Fragment = CheckoutFragment()
                 val btnP: Button = v.findViewById(R.id.btnProceed)
                 btnP.setOnClickListener {
-                    alert.dismiss()
-                    fm!!.beginTransaction().apply {
-                        replace(R.id.fl_wrapper, f)
-                        commit()
+                    val gName = nameET.text.toString()
+                    val gAddress = addressET.text.toString()
+                    val gNote = noteET.text.toString()
+                    if(gName == "" || gAddress == "" || gNote == "") {
+                        Toast.makeText(activity, "Please fill out all fields!", Toast.LENGTH_SHORT).show()
                     }
-
+                    else {
+                        fm!!.beginTransaction().apply {
+                            replace(R.id.fl_wrapper, f)
+                            commit()
+                        }
+                    }
+                    alert.dismiss()
                 }
             }
         }
