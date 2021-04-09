@@ -39,6 +39,7 @@ class CartAdapter(private var CartItem: MutableList<Cart>): RecyclerView.Adapter
         holder.itQty.text = cItems.cQty
         holder.itemView.setOnClickListener {
             val dialog = AlertDialog.Builder(holder.itemView.context)
+            dialog.setCancelable(false)
             dialog.setTitle("Remove Item")
             dialog.setMessage("Do you want to remove ${holder.itTitle.text} to cart?")
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -116,6 +117,8 @@ class CartAdapter(private var CartItem: MutableList<Cart>): RecyclerView.Adapter
                 }
             })
             dialog.setNegativeButton("No", DialogInterface.OnClickListener { _, _ ->
+
+                notifyItemChanged(holder.adapterPosition)
             })
             dialog.show()
         }

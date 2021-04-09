@@ -29,6 +29,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val item4 = activity?.findViewById<ImageView>(R.id.item4)
         val item5 = activity?.findViewById<ImageView>(R.id.item5)
         val item6 = activity?.findViewById<ImageView>(R.id.item6)
+        val item1txt = activity?.findViewById<TextView>(R.id.item1_txt)
+        val item2txt = activity?.findViewById<TextView>(R.id.item2_txt)
+        val item3txt = activity?.findViewById<TextView>(R.id.item3_txt)
+        val item4txt = activity?.findViewById<TextView>(R.id.item4_txt)
+        val item5txt = activity?.findViewById<TextView>(R.id.item5_txt)
+        val item6txt = activity?.findViewById<TextView>(R.id.item6_txt)
         val welcome = activity?.findViewById<TextView>(R.id.welcome)
         val popular =activity?.findViewById<ImageView>(R.id.Popular_img)
         val sh: SharedPreferences = requireActivity().getSharedPreferences("User", 0)
@@ -36,6 +42,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         welcome?.text = "Welcome $username!"
 
         val itemarr = arrayOf(item1,item2,item3,item4,item5,item6)
+        val itemarrtxt = arrayOf(item1txt,item2txt,item3txt,item4txt,item5txt,item6txt)
         // Instantiate the RequestQueue.
         val queue = Volley.newRequestQueue(activity)
         val url = "https://guarded-citadel-93720.herokuapp.com/pizza"
@@ -47,9 +54,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     val json_obj = JSONArray(response.toString())
                     for(i in 0 until json_obj.length()) {
                         val items: JSONObject = json_obj.getJSONObject(i)
+                        val item_name = items.getString("name")
                         val item_image = items.getString("image")
                         //listItems.add(Food(item_image))
                         if(i<6){
+                            //Picasso.get().load(item_name).into(itemarrtxt[i])
+                            itemarrtxt[i]?.setText(item_name)
                             Picasso.get().load(item_image).into(itemarr[i])
                         }
                     }
@@ -97,3 +107,4 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
     }
 }
+
