@@ -1,5 +1,6 @@
 package com.example.pizzamart
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -10,6 +11,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.nav_header.*
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -38,6 +40,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // DEFAULT FRAGMENT
         setFragment(homeFragment)
 
+        //get username of user and display on nav header
+        val sh: SharedPreferences = this.getSharedPreferences("User", 0)
+        val username = sh.getString("username","")
+        navName?.text = username
     }
 
     private fun setFragment(fragment: Fragment) {
@@ -74,10 +80,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
-        return if (id == R.id.cart_img) {
-            setFragment(cartFragment)
-            true
-        } else super.onOptionsItemSelected(item)
+        when(item.itemId) {
+            R.id.cart_img -> setFragment(cartFragment)
+            R.id.menu_img -> setFragment(menuFragment)
+        }
+        return true
     }
 }

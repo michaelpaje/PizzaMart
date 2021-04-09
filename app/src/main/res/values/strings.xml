@@ -49,4 +49,5 @@
     <string name="proceed_to_checkout">Proceed to Checkout</string>
     <string name="php">PHP</string>
     <string name="u20b1">₱</string>
+    <string name="menu_image" />
 </resources>
