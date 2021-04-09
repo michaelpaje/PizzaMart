@@ -71,9 +71,12 @@ class CartFragment : Fragment() {
                         replace(R.id.fl_wrapper, f)
                         commit()
                     }
+
                 }
             }
         }
     }
 }
+
+
 
