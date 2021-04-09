@@ -32,6 +32,7 @@
         android:layout_height="150dp"
         app:lottie_rawRes="@raw/pizza_preloader"
         app:lottie_autoPlay="true"
+        app:lottie_loop="true"
         />
     <TextView
         android:id="@+id/text_2"
