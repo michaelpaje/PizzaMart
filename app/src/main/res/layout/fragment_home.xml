@@ -28,15 +28,6 @@
                 android:textColor="#29AE61"
                 android:textSize="32dp" />
 
-            <TextView
-                android:id="@+id/Popular"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-light"
-                android:text="Popular Now"
-                android:textColor="#000000"
-                android:textSize="30dp" />
-
             <ImageView
                 android:id="@+id/Popular_img"
                 android:layout_width="match_parent"
