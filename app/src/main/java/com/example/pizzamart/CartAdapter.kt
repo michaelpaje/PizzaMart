@@ -5,14 +5,16 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.SharedPreferences
 import android.os.Build
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+
 
 class CartAdapter(private var CartItem: MutableList<Cart>): RecyclerView.Adapter<CartAdapter.ViewHolder>() {
 
@@ -94,6 +96,14 @@ class CartAdapter(private var CartItem: MutableList<Cart>): RecyclerView.Adapter
                                     var temp = gSize.toInt()
                                     temp--
                                     putString("pSize", temp.toString())
+                                    notifyItemChanged(holder.adapterPosition)
+                                    val activity =
+                                        v.context as AppCompatActivity
+                                    val fragment: Fragment = CartFragment()
+                                    activity.supportFragmentManager.beginTransaction().apply {
+                                        replace(com.example.pizzamart.R.id.fl_wrapper, fragment)
+                                        commit()
+                                    }
                                 } else { // IF QUANTITY IS NOT SAME
                                     Toast.makeText(holder.itemView.context, "Successfully removed x${etQty.text} ${holder.itTitle.text} to cart!", Toast.LENGTH_SHORT).show()
                                     val gQty: String? = sh.getString("pQty$i", "1")
@@ -109,6 +119,13 @@ class CartAdapter(private var CartItem: MutableList<Cart>): RecyclerView.Adapter
                                     cItems.cPrice = String.format("%.2f", totalPrice)
                                     cItems.cQty = totalQty.toString()
                                     notifyItemChanged(holder.adapterPosition)
+                                    val activity =
+                                        v.context as AppCompatActivity
+                                    val fragment: Fragment = CartFragment()
+                                    activity.supportFragmentManager.beginTransaction().apply {
+                                        replace(com.example.pizzamart.R.id.fl_wrapper, fragment)
+                                        commit()
+                                    }
                                 }
                             }.apply()
                             break

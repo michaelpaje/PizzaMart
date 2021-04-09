@@ -1,18 +1,15 @@
 package com.example.pizzamart
 
 import android.app.AlertDialog
-import android.app.Dialog
-import android.content.DialogInterface
 import android.content.SharedPreferences
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_cart.*
 
@@ -53,24 +50,28 @@ class CartFragment : Fragment() {
         rvCartID.adapter = CartAdapter(listItems)
         // checkout button
         checkoutBtn.setOnClickListener{
-            val inflater: LayoutInflater = LayoutInflater.from(activity)
-            val v:View = inflater.inflate(R.layout.checkout_dialog,null)
-            val totalP:TextView = v.findViewById(R.id.price)
-            val dialog = AlertDialog.Builder(activity)
-            val alert = dialog.create()
-            totalP.text = totalPrice.toString()
-            alert.setView(v)
-            alert.setTitle("Checkout")
-            alert.show()
+            if(listItems.isEmpty()) {
+                Toast.makeText(activity, "Your cart is empty!", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                val inflater: LayoutInflater = LayoutInflater.from(activity)
+                val v:View = inflater.inflate(R.layout.checkout_dialog,null)
+                val totalP:TextView = v.findViewById(R.id.price)
+                val dialog = AlertDialog.Builder(activity)
+                totalP.text = totalPrice.toString()
+                dialog.setView(v)
+                dialog.setTitle("Checkout")
+                dialog.show()
 
-            val fm = fragmentManager
-            val f: Fragment = CheckoutFragment()
-            val btnP: Button = v.findViewById(R.id.btnProceed)
-            btnP.setOnClickListener {
-                alert.cancel()
-                fm!!.beginTransaction().apply {
-                    replace(R.id.fl_wrapper, f)
-                    commit()
+                val fm = fragmentManager
+                val f: Fragment = CheckoutFragment()
+                val btnP: Button = v.findViewById(R.id.btnProceed)
+                btnP.setOnClickListener {
+                    fm!!.beginTransaction().apply {
+                        replace(R.id.fl_wrapper, f)
+                        commit()
+                    }
+
                 }
             }
         }
