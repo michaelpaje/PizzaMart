@@ -1,34 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
+    android:startColor="#eeeeee"
     tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_centerHorizontal="true"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/rz"/>
 
     <EditText
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/username"
+        android:textColor="@color/black"
+        android:layout_below="@id/logo_image"
+        android:textColorLink="#ffffff"
         android:layout_marginTop="50dp"/>
 
     <EditText
         android:id="@+id/password"
-        android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:textColor="@color/black"
         android:hint="@string/password"
         android:layout_marginTop="50dp"
         android:layout_below="@+id/username"/>
 
-    <EditText
-        android:id="@+id/rePassword"
-        android:inputType="textPassword"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btnSignIn"
+        android:layout_centerHorizontal="true"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:hint="@string/rePassword"
+        android:text="@string/btnSignIn"
+        android:backgroundTint="#FEFEFE"
+        android:textColor="#ffffff"
         android:layout_marginTop="50dp"
+        android:background="@drawable/rounded_white"
         android:layout_below="@+id/password"/>
 
     <Button
@@ -41,7 +58,6 @@
         android:textColor="#ffffff"
         android:background="@drawable/rounded_white"
         android:layout_marginTop="50dp"
-        android:layout_below="@+id/rePassword"/>
-
+        android:layout_below="@+id/btnSignIn"/>
 
 </RelativeLayout>
