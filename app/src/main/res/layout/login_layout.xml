@@ -14,7 +14,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="40dp"
-        android:src="@drawable/rz"/>
+        android:src="@drawable/pizzamart_logo"/>
 
     <EditText
         android:id="@+id/username"
