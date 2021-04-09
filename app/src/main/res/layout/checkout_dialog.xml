@@ -5,48 +5,75 @@
     android:layout_height="400dp"
     android:background="@drawable/curve">
 
+    <TextView
+        android:id="@+id/address_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textColor="#29AE61"
+        android:layout_marginTop="25dp"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/address"
-        android:layout_marginTop="50dp"/>
+        android:layout_below="@id/address_name"
+        />
+
+    <TextView
+        android:id="@+id/city_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="City"
+        android:layout_marginTop="20dp"
+        android:textColor="#29AE61"
+        android:textSize="20sp"
+        android:layout_below="@id/address"/>
 
     <EditText
         android:id="@+id/city"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/city"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/address" />
+        android:layout_below="@id/city_name" />
+
+    <TextView
+        android:id="@+id/note_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Note"
+        android:layout_marginTop="20dp"
+        android:textColor="#29AE61"
+        android:layout_below="@id/city"
+        android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/zipcode"
+        android:id="@+id/note"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/zipcode"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/city" />
+        android:layout_below="@+id/note_name" />
 
     <TextView
         android:id="@+id/total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/total_price"
-        android:textColor="@color/black"
+        android:textColor="#29AE61"
         android:textSize="25sp"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/zipcode" />
+        android:layout_below="@id/note" />
 
     <TextView
         android:id="@+id/peso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:textColor="@color/black"
+        android:textColor="#50C594"
         android:text="@string/u20b1"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="5dp"
         android:layout_below="@id/total"/>
 
     <TextView
@@ -54,11 +81,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:textColor="@color/black"
+        android:textColor="#50C594"
         android:text="@string/_0"
         android:layout_below="@id/total"
         android:layout_toRightOf="@+id/peso"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="5dp"
         android:layout_toEndOf="@+id/peso" />
 
     <Button
@@ -69,7 +96,7 @@
         android:layout_height="wrap_content"
         android:text="@string/checkoutBtn"
         android:layout_alignParentRight="true"
-        android:layout_below="@id/zipcode"
+        android:layout_below="@id/note"
         android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
