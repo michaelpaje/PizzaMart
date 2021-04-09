@@ -49,8 +49,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                         val items: JSONObject = json_obj.getJSONObject(i)
                         val item_image = items.getString("image")
                         //listItems.add(Food(item_image))
-                        Picasso.get().load(item_image).into(popular)
-                        Picasso.get().load(item_image).into(itemarr[i])
+                        if(i<6){
+                            Picasso.get().load(item_image).into(popular)
+                            Picasso.get().load(item_image).into(itemarr[i])
+                        }
                     }
                 } catch (e: JSONException) {
                     e.printStackTrace()
