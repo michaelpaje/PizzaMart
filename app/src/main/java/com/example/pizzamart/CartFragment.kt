@@ -27,10 +27,10 @@ class CartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         // delete list
         listItems.clear()
+        // to get data from cart
         val sh: SharedPreferences = requireActivity().getSharedPreferences("Cart", 0)
         val check:String? = sh.getString("pTitle0", null)
         var totalPrice: Double? = sh.getString("pTotal","0.00")?.toDouble()
-        //var totalPrice = 0.00
         if (check != null) {
             val gSize: String? = sh.getString("pSize", "")
             val inflater: LayoutInflater = LayoutInflater.from(activity)
@@ -47,10 +47,12 @@ class CartFragment : Fragment() {
                 totalP.text = totalPrice.toString()
             }
         }
+        // connect recyclerview to cart adapter
         rvCartID.layoutManager = LinearLayoutManager(activity)
         rvCartID.adapter = CartAdapter(listItems)
         // checkout button
         checkoutBtn.setOnClickListener{
+            // if cart is empty
             if(listItems.isEmpty()) {
                 Toast.makeText(activity, "Your cart is empty!", Toast.LENGTH_SHORT).show()
             }
