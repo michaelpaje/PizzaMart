@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:text="Contact Us"
             android:textColor="#29AE61"
+            android:layout_marginTop="20dp"
             android:textSize="30dp"
             app:layout_constraintEnd_toStartOf="@+id/contact_icon"
             app:layout_constraintHorizontal_bias="0.25"
@@ -30,6 +31,7 @@
             android:id="@+id/contact_icon"
             android:layout_width="81dp"
             android:layout_height="65dp"
+            android:layout_marginTop="20dp"
             android:src="@android:drawable/stat_sys_phone_call"
             app:civ_border_color="#FF000000"
             app:civ_border_overlay="false"
@@ -113,6 +115,7 @@
             <Button
                 android:id="@+id/contact_btn"
                 android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
                 android:layout_height="wrap_content"
                 android:text="Send"
                 android:background="@drawable/rounded_btn"

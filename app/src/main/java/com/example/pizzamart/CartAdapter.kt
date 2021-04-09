@@ -30,7 +30,7 @@ class CartAdapter(private var CartItem: MutableList<Cart>): RecyclerView.Adapter
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        var cItems: Cart = CartItem[position]
+        val cItems: Cart = CartItem[position]
         val inflater: LayoutInflater = LayoutInflater.from(holder.itemView.context)
         val v:View = inflater.inflate(R.layout.dialog_custom,null)
         val etQty: EditText = v.findViewById(R.id.FoodQty)
@@ -112,6 +112,7 @@ class CartAdapter(private var CartItem: MutableList<Cart>): RecyclerView.Adapter
                     }
                 } else { // IF ENTERED QUANTITY IS ABOVE FOOD QUANTITY
                     Toast.makeText(holder.itemView.context, "Entered Quantity is too high!", Toast.LENGTH_SHORT).show()
+                    notifyItemChanged(holder.adapterPosition)
                 }
             })
             dialog.setNegativeButton("No", DialogInterface.OnClickListener { _, _ ->
