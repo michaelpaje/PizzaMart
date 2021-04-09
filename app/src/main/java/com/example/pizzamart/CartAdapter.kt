@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.SharedPreferences
 import android.os.Build
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -47,38 +48,37 @@ class CartAdapter(private var CartItem: MutableList<Cart>): RecyclerView.Adapter
             }
             dialog.setPositiveButton("Yes", DialogInterface.OnClickListener { _, _ ->
                 // IF ENTERED QTY IS LOWER THAN FOOD QUANTITY
-                if(etQty.text.toString().toInt() <= (holder.itQty.text as String).toInt()){
+                if (etQty.text.toString().toInt() <= (holder.itQty.text as String).toInt()) {
                     val sh: SharedPreferences = holder.itemView.context.getSharedPreferences("Cart", 0)
                     // GET SIZE
                     val gSize: String? = sh.getString("pSize", "0")
+                    val total: String? = sh.getString("pTotal", "0.00")
                     var visit = false
                     var tempj = 0
                     // get name of pizza
-                    for(i in 0 until gSize!!.toInt()) {
+                    for (i in 0 until gSize!!.toInt()) {
                         val gTitle: String? = sh.getString("pTitle$i", "")
-                        if(holder.itTitle.text == gTitle)
-                        {
+                        if (holder.itTitle.text == gTitle) {
                             val cgQty: String? = sh.getString("pQty$i", "")
                             holder.itemView.context.getSharedPreferences("Cart", Context.MODE_PRIVATE).edit().apply()
                             {
-                                if(etQty.text.toString() == cgQty.toString()) // IF SAME QUANTITY
+                                if (etQty.text.toString() == cgQty.toString()) // IF SAME QUANTITY
                                 {
                                     // REMOVE IN RECYCLERVIEW
                                     CartItem.removeAt(holder.adapterPosition)
                                     notifyItemRemoved(holder.adapterPosition)
-                                    notifyItemRangeChanged(holder.adapterPosition,itemCount)
+                                    notifyItemRangeChanged(holder.adapterPosition, itemCount)
                                     Toast.makeText(holder.itemView.context, "${holder.itTitle.text} Successfully removed to cart!", Toast.LENGTH_SHORT).show()
                                     // remove in shared pref
-                                    for(j in 0 until gSize.toInt()) {
+                                    for (j in 0 until gSize.toInt()) {
                                         val tTitle: String? = sh.getString("pTitle$j", "")
                                         val tPrice: String? = sh.getString("pPrice$j", "")
                                         val tQty: String? = sh.getString("pQty$j", "")
-                                        if(holder.itTitle.text == tTitle)
-                                        {
+                                        if (holder.itTitle.text == tTitle) {
                                             visit = true
                                         } else {
-                                            if(visit){
-                                                tempj = j-1
+                                            if (visit) {
+                                                tempj = j - 1
                                                 putString("pTitle$tempj", tTitle)
                                                 putString("pPrice$tempj", tPrice)
                                                 putString("pQty$tempj", tQty)
@@ -99,10 +99,13 @@ class CartAdapter(private var CartItem: MutableList<Cart>): RecyclerView.Adapter
                                     val gQty: String? = sh.getString("pQty$i", "1")
                                     val gPrice: String? = sh.getString("pPrice$i", "")
                                     val totalQty = gQty?.toInt()?.minus(etQty.text.toString().toInt())
+                                    //val ptotal = total?.toDouble()?.minus(gPrice?.toDouble())
                                     val totalPrice = gPrice?.toDouble()?.div(gQty?.toDouble()!!)?.times(totalQty!!)
+
                                     // overwrite price and quantity
                                     putString("pPrice$i", String.format("%.2f", totalPrice))
                                     putString("pQty$i", totalQty.toString())
+                                    //putString("pTotal",String.format("%.2f", totalPrice))
                                     cItems.cPrice = String.format("%.2f", totalPrice)
                                     cItems.cQty = totalQty.toString()
                                     notifyItemChanged(holder.adapterPosition)
