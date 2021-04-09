@@ -2,11 +2,12 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_Fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/home_Fragment"
-    tools:context=".HomeFragment"
-    android:padding="10dp">
+    android:background="#EBEBED"
+    android:padding="10dp"
+    tools:context=".HomeFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,41 +16,34 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/welcome"
                 android:layout_width="match_parent"
-                android:layout_height="296dp"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="Welcome text"
+                android:textColor="#29AE61"
+                android:textSize="32dp" />
 
-                <TextView
-                    android:id="@+id/welcome"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="Welcome text"
-                    android:textColor="#000000"
-                    android:textSize="32dp" />
+            <TextView
+                android:id="@+id/Popular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="Popular Now"
+                android:textColor="#000000"
+                android:textSize="30dp" />
 
-                <TextView
-                    android:id="@+id/Popular"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:text="Popular Now"
-                    android:textColor="#000000"
-                    android:textSize="30dp" />
-
-                <ImageView
-                    android:id="@+id/Popular_img"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_weight="1"
-                    android:contentDescription="First Item"
-                    android:padding="5dp"
-                    android:src="@android:drawable/editbox_dropdown_light_frame" />
-
-            </LinearLayout>
+            <ImageView
+                android:id="@+id/Popular_img"
+                android:layout_width="match_parent"
+                android:layout_height="186dp"
+                android:layout_weight="1"
+                android:contentDescription="First Item"
+                android:padding="5dp"
+                android:src="@drawable/homecover1" />
 
             <LinearLayout
                 android:layout_width="match_parent"
