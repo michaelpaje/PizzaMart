@@ -11,7 +11,7 @@
         android:layout_marginTop="100dp"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        app:lottie_rawRes="@raw/out_for_del"
+        app:lottie_rawRes="@raw/preparing_food"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         />
