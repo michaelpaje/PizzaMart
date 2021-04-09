@@ -5,15 +5,17 @@
     android:background="#29AE61"
     android:gravity="bottom"
     android:padding="16dp"
-    android:layout_height="230dp">
+    android:layout_height="200dp">
 
     <ImageView
+        android:id="@+id/navImage"
         android:layout_width="108dp"
         android:layout_height="108dp"
-        android:src="@drawable/dom"
+        android:src="@drawable/ic_launcher_foreground"
         android:contentDescription="@string/image" />
 
     <TextView
+        android:id="@+id/navName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
@@ -21,11 +23,5 @@
         android:textColor="@color/white"
         android:text="@string/placeholder"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textColor="@color/white"
-        android:text="@string/placeholder"/>
 
 </LinearLayout>
