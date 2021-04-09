@@ -1,7 +1,9 @@
 package com.example.pizzamart
 
 import android.app.AlertDialog
+import android.app.Dialog
 import android.content.SharedPreferences
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_cart.*
 
@@ -52,9 +55,15 @@ class CartFragment : Fragment() {
             dialog.setView(v)
             dialog.setTitle("Checkout")
             dialog.show()
+
+            val fm = fragmentManager
+            val f: Fragment = CheckoutFragment()
             val btnP: Button = v.findViewById(R.id.btnProceed)
             btnP.setOnClickListener {
-                
+                fm!!.beginTransaction().apply {
+                    replace(R.id.fl_wrapper, f)
+                    commit()
+                }
             }
         }
     }

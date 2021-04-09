@@ -57,20 +57,44 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun setFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fl_wrapper, fragment)
+            addToBackStack("")
             commit()
         }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
          when(item.itemId){
-             R.id.home_item -> setFragment(homeFragment)
-             R.id.contact_item -> setFragment(contactFragment)
-             R.id.about_item -> setFragment(aboutFragment)
-             R.id.menu_item -> setFragment(menuFragment)
-             R.id.cart_item -> setFragment(cartFragment)
+             R.id.home_item -> {
+                 setFragment(homeFragment)
+
+             }
+             R.id.contact_item -> {
+                 setFragment(contactFragment)
+             }
+             R.id.about_item -> {
+                 setFragment(aboutFragment)
+             }
+             R.id.menu_item -> {
+                 setFragment(menuFragment)
+             }
+             R.id.cart_item -> {
+                 setFragment(cartFragment)
+             }
              R.id.logout_item -> finish()
          }
         drawer.closeDrawer(GravityCompat.START)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.cart_img -> {
+                setFragment(cartFragment)
+            }
+            R.id.menu_img -> {
+                setFragment(menuFragment)
+            }
+        }
         return true
     }
 
@@ -84,14 +108,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
-            R.id.cart_img -> setFragment(cartFragment)
-            R.id.menu_img -> setFragment(menuFragment)
-        }
         return true
     }
 }
