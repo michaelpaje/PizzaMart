@@ -6,12 +6,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.checkout_dialog.*
 import kotlinx.android.synthetic.main.fragment_cart.*
-import java.awt.font.TextAttribute
 
 
 class CartFragment : Fragment() {
@@ -45,15 +44,18 @@ class CartFragment : Fragment() {
         rvCartID.adapter = CartAdapter(listItems)
         // checkout button
         checkoutBtn.setOnClickListener{
-            // DITO MAGEENTER NG MGA ADDRESS CHUCHU
             val inflater: LayoutInflater = LayoutInflater.from(activity)
             val v:View = inflater.inflate(R.layout.checkout_dialog,null)
             val totalP:TextView = v.findViewById(R.id.price)
             val dialog = AlertDialog.Builder(activity)
-            dialog.setIcon(R.drawable.ic_baseline_shopping_cart_24)
             totalP.text = totalPrice.toString()
             dialog.setView(v)
+            dialog.setTitle("Checkout")
             dialog.show()
+            val btnP: Button = v.findViewById(R.id.btnProceed)
+            btnP.setOnClickListener {
+                
+            }
         }
     }
 }
