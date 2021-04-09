@@ -9,7 +9,6 @@
     android:padding="20dp"
     tools:targetApi="lollipop">
 
-
     <TextView
         android:id="@+id/cFoodName"
         android:layout_width="fill_parent"
@@ -40,6 +39,7 @@
         android:layout_alignParentBottom="true"
         android:ellipsize="marquee"
         android:layout_toRightOf="@id/cFoodPcs"
+        android:layout_marginTop="20dp"
         android:singleLine="true"
         android:layout_marginLeft="5dp"
         android:text="@string/food_price"
@@ -47,6 +47,20 @@
         android:textSize="24sp"
         android:layout_marginStart="5dp"
         android:layout_toEndOf="@id/cFoodPcs" />
+
+    <TextView
+        android:id="@+id/cQtyText"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:ellipsize="marquee"
+        android:layout_marginRight="25dp"
+        android:text="Qty."
+        android:textColor="#303030"
+        android:layout_centerVertical="true"
+        android:textSize="35sp"
+        android:layout_toLeftOf="@id/cFoodQty"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:id="@+id/cFoodQty"

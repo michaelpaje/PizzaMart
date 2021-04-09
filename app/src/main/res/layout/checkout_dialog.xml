@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="400dp"
     android:background="@drawable/curve">
 
 
@@ -29,13 +29,47 @@
         android:layout_marginTop="50dp"
         android:layout_below="@+id/city" />
 
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total_price"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/zipcode" />
+
+    <TextView
+        android:id="@+id/peso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:text="@string/u20b1"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@id/total"/>
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:text="@string/_0"
+        android:layout_below="@id/total"
+        android:layout_toRightOf="@+id/peso"
+        android:layout_marginBottom="20dp"
+        android:layout_toEndOf="@+id/peso" />
+
     <Button
         android:id="@+id/btnProceed"
         android:background="@drawable/rounded_btn"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
+        android:layout_marginTop="20dp"
         android:layout_height="wrap_content"
         android:text="@string/checkoutBtn"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/zipcode"/>
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/zipcode"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
