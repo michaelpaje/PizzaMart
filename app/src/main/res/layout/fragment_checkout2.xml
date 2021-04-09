@@ -9,7 +9,7 @@
         android:id="@+id/img_pickup"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="300dp"
         app:lottie_rawRes="@raw/out_for_del"
         app:lottie_autoPlay="true"
@@ -25,5 +25,5 @@
         android:layout_below="@+id/img_pickup"
         android:textAlignment="center"
         android:gravity="center_horizontal"
-        android:textSize="32sp"/>
+        android:textSize="25sp"/>
 </RelativeLayout>
