@@ -1,9 +1,12 @@
 package com.example.pizzamart
 
+
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -12,6 +15,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.nav_header.*
+import org.w3c.dom.Text
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -33,6 +37,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer = findViewById(R.id.drawer_layout)
         val navView = findViewById<NavigationView>(R.id.nav_view)
         navView.setNavigationItemSelectedListener(this)
+        
+        //get username of user and display on nav header
+        val sh: SharedPreferences = this.getSharedPreferences("User", 0)
+        val username = sh.getString("username", "")
+        val hv = navView.getHeaderView(0)
+        val nnav = hv.findViewById<TextView>(R.id.navName)
+        nnav.text = "$username"
 
         val toggle = ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         toggle.syncState()
@@ -40,15 +51,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // DEFAULT FRAGMENT
         setFragment(homeFragment)
 
-        //get username of user and display on nav header
-        val sh: SharedPreferences = this.getSharedPreferences("User", 0)
-        val username = sh.getString("username","")
-        navName?.text = username
+
     }
 
     private fun setFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fl_wrapper,fragment)
+            replace(R.id.fl_wrapper, fragment)
             commit()
         }
     }
