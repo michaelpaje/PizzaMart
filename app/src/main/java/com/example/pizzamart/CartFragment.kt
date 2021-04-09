@@ -2,6 +2,7 @@ package com.example.pizzamart
 
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.DialogInterface
 import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
@@ -56,15 +57,17 @@ class CartFragment : Fragment() {
             val v:View = inflater.inflate(R.layout.checkout_dialog,null)
             val totalP:TextView = v.findViewById(R.id.price)
             val dialog = AlertDialog.Builder(activity)
+            val alert = dialog.create()
             totalP.text = totalPrice.toString()
-            dialog.setView(v)
-            dialog.setTitle("Checkout")
-            dialog.show()
+            alert.setView(v)
+            alert.setTitle("Checkout")
+            alert.show()
 
             val fm = fragmentManager
             val f: Fragment = CheckoutFragment()
             val btnP: Button = v.findViewById(R.id.btnProceed)
             btnP.setOnClickListener {
+                alert.cancel()
                 fm!!.beginTransaction().apply {
                     replace(R.id.fl_wrapper, f)
                     commit()
@@ -73,4 +76,6 @@ class CartFragment : Fragment() {
         }
     }
 }
+
+
 
