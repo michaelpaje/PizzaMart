@@ -35,7 +35,7 @@
     <string name="Member2">Charles Dominic Narag</string>
     <string name="Member3">Camille Monis</string>
     <string name="abouttext">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer viverra, neque id congue tincidunt, sapien erat elementum erat, at feugiat lectus risus et nisi. Vestibulum non pulvinar nulla. Sed pretium est at elementum elementum. Pellentesque porttitor sit amet nisi nec pulvinar. Donec ultrices elit elit, vel malesuada ligula viverra consectetur.</string>
+        Ryzen4 is a group of Information Technology Students that specialized in Web and Mobile Application.</string>
     <string name="my_cart">My Cart</string>
     <string name="checkoutBtn">Checkout</string>
     <string name="address" />
@@ -54,4 +54,5 @@
     <string name="the_rider_has_picked_up_your_order">The rider has picked up your order!</string>
     <string name="the_rider_is_on_the_way_please_sit_back_and_relax">The rider is on the way, please sit back and relax!</string>
     <string name="name">Name</string>
+    <string name="about_the_developers">About the Developers</string>
 </resources>
