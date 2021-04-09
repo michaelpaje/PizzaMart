@@ -15,14 +15,14 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.ShoppingCart"
         tools:targetApi="m">
+        <activity android:name="com.example.pizzamart.splash_screen">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-        <activity android:name="com.example.pizzamart.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
+        <activity android:name="com.example.pizzamart.LoginActivity"/>
         <activity android:name="com.example.pizzamart.RegisterActivity"/>
         <activity android:name="com.example.pizzamart.MainActivity"/>
     </application>
