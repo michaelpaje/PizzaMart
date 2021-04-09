@@ -36,7 +36,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val item5txt = activity?.findViewById<TextView>(R.id.item5_txt)
         val item6txt = activity?.findViewById<TextView>(R.id.item6_txt)
         val welcome = activity?.findViewById<TextView>(R.id.welcome)
-        val popular =activity?.findViewById<ImageView>(R.id.Popular_img)
         val sh: SharedPreferences = requireActivity().getSharedPreferences("User", 0)
         val username = sh.getString("username","0")
         welcome?.text = "Welcome $username!"
