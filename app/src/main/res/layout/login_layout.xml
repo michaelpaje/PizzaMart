@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
+    android:background="#50C594"
     tools:context=".MainActivity">
 
     <EditText
@@ -11,26 +13,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/username"
+        android:textColor="@color/white"
+        android:layout_below="@id/logo_image"
         android:layout_marginTop="50dp"/>
 
     <EditText
         android:id="@+id/password"
         android:inputType="textPassword"
+        android:textColor="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/password"
         android:layout_marginTop="50dp"
         android:layout_below="@+id/username"/>
-
-    <Button
-        android:id="@+id/btnSignUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btnSignUp"
-        android:backgroundTint="#FEFEFE"
-        android:textColor="#29AE61"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/password"/>
 
     <Button
         android:id="@+id/btnSignIn"
@@ -40,6 +35,26 @@
         android:backgroundTint="#FEFEFE"
         android:textColor="#29AE61"
         android:layout_marginTop="50dp"
-        android:layout_below="@+id/btnSignUp"/>
+
+        android:layout_below="@+id/password"/>
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btnSignUp"
+        android:backgroundTint="#FEFEFE"
+        android:textColor="#29AE61"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/btnSignIn"/>
+
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_centerHorizontal="true"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/rz"/>
+
 
 </RelativeLayout>
