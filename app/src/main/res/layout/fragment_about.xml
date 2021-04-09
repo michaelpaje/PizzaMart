@@ -230,7 +230,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:text="@string/about_text"
+                android:text="@string/about_the_developers"
                 android:textColor="#29AE61"
                 android:textSize="30sp"
                 android:textStyle="bold"
