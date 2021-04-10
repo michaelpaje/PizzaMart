@@ -80,7 +80,7 @@ class CartFragment : Fragment() {
                         Toast.makeText(activity, "Please fill out all fields!", Toast.LENGTH_SHORT).show()
                     }
                     else {
-                        listItems.clear()
+                        activity?.getSharedPreferences("Cart", 0)?.edit()?.clear()?.apply()
                         fm!!.beginTransaction().apply {
                             replace(R.id.fl_wrapper, f)
                             commit()
