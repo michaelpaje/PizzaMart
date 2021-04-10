@@ -15,11 +15,11 @@ class ContactFragment : Fragment(R.layout.fragment_contact) {
         val contactName = llC?.findViewById<EditText>(R.id.input_name)
         val contactEmail = llC?.findViewById<EditText>(R.id.input_email)
         val contactMessage = llC?.findViewById<EditText>(R.id.input_message)
-        val gCN = contactName?.text.toString()
-        val gCE = contactEmail?.text.toString()
-        val gCM = contactMessage?.text.toString()
         val contactSend = activity?.findViewById<Button>(R.id.contact_btn)
         contactSend?.setOnClickListener {
+            val gCN = contactName?.text.toString()
+            val gCE = contactEmail?.text.toString()
+            val gCM = contactMessage?.text.toString()
             if(gCN == "" || gCE == "" || gCM == ""){
                 Toast.makeText(activity, "Please enter all fields!", Toast.LENGTH_SHORT).show()
             }else{
