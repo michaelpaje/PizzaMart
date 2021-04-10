@@ -24,7 +24,11 @@ class ContactFragment : Fragment(R.layout.fragment_contact) {
                 Toast.makeText(activity, "Please enter all fields!", Toast.LENGTH_SHORT).show()
             }else{
                 Toast.makeText(activity, "Message sent successfully!", Toast.LENGTH_SHORT).show()
+                contactName?.text?.clear()
+                contactEmail?.text?.clear()
+                contactMessage?.text?.clear()
             }
         }
+
     }
 }
