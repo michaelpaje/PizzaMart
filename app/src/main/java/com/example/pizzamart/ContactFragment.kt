@@ -10,12 +10,15 @@ import android.widget.Toast
 class ContactFragment : Fragment(R.layout.fragment_contact) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val contactname = activity?.findViewById<EditText>(R.id.input_name)?.text.toString()
-        val contactemail = activity?.findViewById<EditText>(R.id.input_email)?.text.toString()
-        val contactmessage = activity?.findViewById<EditText>(R.id.input_message)?.text.toString()
+        val contactName = activity?.findViewById<EditText>(R.id.input_name)
+        val contactEmail = activity?.findViewById<EditText>(R.id.input_email)
+        val contactMessage = activity?.findViewById<EditText>(R.id.input_message)
         val contactSend = activity?.findViewById<Button>(R.id.contact_btn)
+        val gCN = contactName?.text.toString()
+        val gCE = contactEmail?.text.toString()
+        val gCM = contactMessage?.text.toString()
         contactSend?.setOnClickListener {
-            if(contactname == "" || contactemail == "" || contactmessage == ""){
+            if(gCN == "" || gCE == "" || gCM == ""){
                 Toast.makeText(activity, "Please enter all fields!", Toast.LENGTH_SHORT).show()
             }else{
                 Toast.makeText(activity, "Message sent successfully!", Toast.LENGTH_SHORT).show()
