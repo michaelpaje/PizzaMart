@@ -55,6 +55,7 @@
             app:layout_constraintTop_toBottomOf="@+id/contact" />
 
         <LinearLayout
+            android:id="@+id/llContact"
             android:layout_width="362dp"
             android:layout_height="321dp"
             android:orientation="vertical"
